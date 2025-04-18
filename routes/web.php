@@ -1,5 +1,6 @@
 <![CDATA<?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,10 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
-
-Route::get('/register', function () {
-    return view('register');
-});
+Route::get('/register',[AuthController::class, 'Register'])->name('Register');
+Route::get('/login',[AuthController::class, 'Login'])->name('Login');
+Route::get('/login-custom',[AuthController::class, 'LoginCustom'])->name('login.custom');
+Route::get('/register-custom',[AuthController::class, 'RegisterCustom'])->name('register.custom');
